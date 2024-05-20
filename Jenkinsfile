@@ -21,8 +21,8 @@ pipeline {
                     cd opt/frontend
                     docker stop frontend || true &&
                     docker rm frontend || true &&
-                    docker build -t frontend .
-                    docker run -d --name frontend -p 80:80 -p 443:443 frontend:${BUILD_NUMBER}
+                    docker build -t frontend:${BUILD_NUMBER} .
+                    docker run -d --name frontend -p 80:80 frontend:${BUILD_NUMBER}
                     echo $?
                   '''
                 )
